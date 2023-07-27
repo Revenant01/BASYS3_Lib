@@ -1,7 +1,5 @@
 # Basys3 Library for Multiple HDL Interfaces and Peripherals
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 ## Introduction
 
 Welcome to the Basys3 Library repository! This open-source project aims to provide a comprehensive collection of hardware description language (HDL) modules that act as interfaces with the Basys3 FPGA development board and handle various peripherals on the board. The library is designed to be versatile and adaptable, supporting multiple HDL languages such as Verilog and VHDL.
@@ -74,14 +72,6 @@ To use the Basys3 Library in your own HDL projects, follow these steps:
 3. Instantiate and connect the modules in your project's top-level design.
 
 4. Refer to the documentation and examples provided in the "docs" directory for guidance on using specific modules.
-
-## Contributing
-
-We welcome contributions from the community to enhance the Basys3 Library. If you wish to contribute, follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
