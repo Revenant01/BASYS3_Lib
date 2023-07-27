@@ -69,8 +69,6 @@ To use the Basys3 Library in your own HDL projects, follow these steps:
 
 3. Instantiate and connect the modules in your project's top-level design.
 
-4. Refer to the documentation and examples provided in the "docs" directory for guidance on using specific modules.
-
 ## Acknowledgments
 
 We would like to express our gratitude to the open-source community for their valuable contributions and support.
