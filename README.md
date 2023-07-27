@@ -34,6 +34,7 @@ The Basys3 Library currently supports the following HDL languages:
 
 - Verilog
 - VHDL
+- SystemVerilog
 
 We aim to expand our language support in the future to accommodate a broader range of users.
 
