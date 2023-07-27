@@ -50,7 +50,7 @@ To use the Basys3 Library, you will need the following:
 1. Clone this repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/basys3-library.git
+git clone [https://github.com/your-username/basys3-library.git](https://github.com/Revenant01/BASYS3_Lib/tree/main)
 ```
 
 2. Navigate to the repository directory:
