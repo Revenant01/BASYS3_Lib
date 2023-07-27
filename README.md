@@ -13,8 +13,6 @@ Welcome to the Basys3 Library repository! This open-source project aims to provi
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
