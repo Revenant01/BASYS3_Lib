@@ -236,7 +236,11 @@ module UART_Tx #(
         end
 
         `STOP: begin
-          current_state <= `IDLE;
+          if (DATA_VALID) begin
+            current_state <= `START;
+          end else begin
+            current_state <= `IDLE;
+          end
         end
 
         default: begin
