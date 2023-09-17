@@ -23,8 +23,6 @@
 --
 -------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------
-
-
 -------------------------------------------------------------------------------------------------------
 ------------------------------------------ EXPLAINATION  ----------------------------------------------
 -------------------------------------------------------------------------------------------------------
@@ -68,11 +66,9 @@
 -- and communication protocol handling.
 -------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------
-
-
-LIBRARY ieee; 
-USE ieee.std_logic_1164.ALL; 
-USE ieee.numeric_std.ALL; 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
 ENTITY UART_TX IS
     GENERIC (
@@ -82,7 +78,7 @@ ENTITY UART_TX IS
     PORT (
         clk : IN STD_LOGIC; -- Clock input for the module
         enable : IN STD_LOGIC; -- Enable signal for transmission
-        data_in : IN STD_LOGIC_VECTOR(DATA_SIZE-1 DOWNTO 0); -- Input data to be transmitted
+        data_in : IN STD_LOGIC_VECTOR(DATA_SIZE - 1 DOWNTO 0); -- Input data to be transmitted
         TX : OUT STD_LOGIC -- Serial output
     );
 END UART_TX;
@@ -92,8 +88,8 @@ ARCHITECTURE Behavioural OF UART_TX IS
     TYPE Tx_state IS (IDLE, START, DATA, STOP); -- Type declaration for the states of the UART transmitter
 
     SIGNAL state : Tx_state := IDLE; -- State register for the transmitter
-    SIGNAL data_Index : INTEGER RANGE 0 TO DATA_SIZE-1 := 0; -- Bit counter
-    SIGNAL dataReg : STD_LOGIC_VECTOR(DATA_SIZE-1 DOWNTO 0) := (OTHERS => '0'); -- Data register for the transmitted data
+    SIGNAL data_Index : INTEGER RANGE 0 TO DATA_SIZE - 1 := 0; -- Bit counter
+    SIGNAL dataReg : STD_LOGIC_VECTOR(DATA_SIZE - 1 DOWNTO 0) := (OTHERS => '0'); -- Data register for the transmitted data
     SIGNAL Clk_Count : INTEGER RANGE 0 TO BAUD_RATE - 1 := 0; -- Baud rate counter
 
 BEGIN
@@ -129,7 +125,7 @@ BEGIN
                     ELSE
                         clk_Count <= 0;
 
-                        IF (data_Index = DATA_SIZE-1) THEN
+                        IF (data_Index = DATA_SIZE - 1) THEN
                             state <= STOP; -- Transition to STOP state after transmitting all data bits
                         ELSE
                             data_Index <= data_Index + 1; -- Increment bit counter

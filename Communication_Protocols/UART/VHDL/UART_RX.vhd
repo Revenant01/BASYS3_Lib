@@ -23,8 +23,6 @@
 --
 -------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------
-
-
 -------------------------------------------------------------------------------------------------------
 ------------------------------------------ EXPLAINATION  ----------------------------------------------
 -------------------------------------------------------------------------------------------------------
@@ -70,13 +68,13 @@ USE ieee.numeric_std.ALL;
 ENTITY UART_RX IS
     GENERIC (
         BAUD_RATE : INTEGER := 10416;
-	  DATA_SIZE : INTEGER := 8
+        DATA_SIZE : INTEGER := 8
     );
 
     PORT (
         clk : IN STD_LOGIC;
         RX : IN STD_LOGIC;
-        DATA_OUT : OUT STD_LOGIC_VECTOR(DATA_SIZE-1 DOWNTO 0);
+        DATA_OUT : OUT STD_LOGIC_VECTOR(DATA_SIZE - 1 DOWNTO 0);
         DONE : OUT STD_LOGIC
     );
 END UART_RX;
@@ -85,15 +83,15 @@ ARCHITECTURE Behavioural OF UART_RX IS
     TYPE state_type IS (IDLE, START, DATA, STOP);
     SIGNAL state : state_type := IDLE;
 
-    SIGNAL DataReg : STD_LOGIC_VECTOR(DATA_SIZE-1 DOWNTO 0) := (others => '0');
-    SIGNAL clk_count : INTEGER  RANGE 0 TO (Baud_Rate - 1) := 0;
-    SIGNAL data_index_counter : INTEGER  RANGE 0 TO DATA_SIZE-1 := 0;
+    SIGNAL DataReg : STD_LOGIC_VECTOR(DATA_SIZE - 1 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL clk_count : INTEGER RANGE 0 TO (Baud_Rate - 1) := 0;
+    SIGNAL data_index_counter : INTEGER RANGE 0 TO DATA_SIZE - 1 := 0;
     SIGNAL isDone : STD_LOGIC := '0';
 
 BEGIN
 
     receiver : PROCESS (clk)
-    begin
+    BEGIN
         IF (rising_edge(clk)) THEN
 
             CASE state IS
@@ -124,7 +122,7 @@ BEGIN
                     IF (clk_count = Baud_rate - 1) THEN
                         clk_count <= 0;
                         DataReg(data_index_counter) <= RX;
-                        IF (data_index_counter = DATA_SIZE-1) THEN
+                        IF (data_index_counter = DATA_SIZE - 1) THEN
                             state <= STOP;
                         ELSE
                             data_index_counter <= data_index_counter + 1;
